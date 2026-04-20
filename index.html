@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katalog Tarif Layanan</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background:#f4f6f9; }
+h1 { text-align: center; }
+input { width: 100%; padding: 10px; margin-bottom: 20px; border-radius:8px; border:1px solid #ccc; }
+table { width: 100%; border-collapse: collapse; background:white; }
+th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align:left; }
+th { background:#007bff; color:white; }
+tr:hover { background:#f1f1f1; }
+</style>
+</head>
+<body>
+
+<h1>Katalog Tarif Layanan Balkesmas</h1>
+
+<input type="text" id="searchInput" placeholder="Cari nama perawatan...">
+
+<table id="tarifTable">
+<thead>
+<tr>
+<th>Kode</th>
+<th>Nama Perawatan</th>
+<th>Kategori</th>
+<th>Biaya (Rp)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>DRPARU</td><td>Dokter Spesialis Paru</td><td>Dokter Spesialis</td><td>90000</td></tr>
+<tr><td>ADM1</td><td>Rekam Medik di Luar Paket</td><td>Administrasi</td><td>5000</td></tr>
+<tr><td>DRANAK</td><td>Dokter Spesialis Anak</td><td>Dokter Spesialis</td><td>90000</td></tr>
+<tr><td>SPIRO</td><td>Spirometri</td><td>Tindakan Khusus</td><td>37000</td></tr>
+<tr><td>EKG</td><td>EKG</td><td>Tindakan Khusus</td><td>48000</td></tr>
+<tr><td>USG</td><td>USG Abdomen</td><td>Tindakan Khusus</td><td>243000</td></tr>
+<tr><td>FIS1</td><td>Latihan Pernafasan</td><td>Fisioterapi</td><td>20000</td></tr>
+<tr><td>KONSUL</td><td>Konsultasi Dokter Spesialis</td><td>Konsultasi</td><td>80000</td></tr>
+<tr><td>MCU</td><td>Paket MCU Sederhana</td><td>Administrasi</td><td>172000</td></tr>
+<tr><td>UGD</td><td>Pelayanan UGD</td><td>UGD</td><td>120000</td></tr>
+</tbody>
+</table>
+
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function() {
+    let filter = this.value.toLowerCase();
+    let rows = document.querySelectorAll("#tarifTable tbody tr");
+
+    rows.forEach(row => {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
+});
+</script>
+
+</body>
+</html>
